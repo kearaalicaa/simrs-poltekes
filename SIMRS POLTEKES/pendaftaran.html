@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMRS Pendaftaran</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header-menu">
+    <div class="title">
+        <h4>SIMRS</h4>
+    </div>
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="pengguna.html">Pengguna</a>
+        <a class="active" href="pendaftaran.html">Pendaftaran</a>
+        <a href="rawatjalan.html">Rawat Jalan</a>
+    </nav>
+    <div class="button-auth">
+        <button>Logout</button>
+    </div>
+</header>
+
+<!-- FORM PENDAFTARAN -->
+<main class="container">
+    <h2>Formulir Pendaftaran Pasien</h2>
+    <div class="form-card">
+        <form id="pendaftaranForm">
+            <div class="form-group">
+                <label for="nama">Nama Pasien</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Pasien" required>
+            </div>
+            <div class="form-group">
+                <label for="rm">No. RM</label>
+                <input type="text" id="rm" name="rm" placeholder="Masukkan Nomor Rekam Medis" required>
+            </div>
+            <div class="form-group">
+                <label for="nik">NIK</label>
+                <input type="text" id="nik" name="nik" placeholder="Masukkan NIK" required>
+            </div>
+            <div class="form-group">
+                <label for="tgl_lahir">Tanggal Lahir</label>
+                <input type="date" id="tgl_lahir" name="tgl_lahir" required>
+            </div>
+            <div class="form-group">
+                <label for="poliklinik">Tujuan Poliklinik</label>
+                <select id="poliklinik" name="poliklinik" required>
+                    <option value="" disabled selected>Pilih Poliklinik</option>
+                    <option value="umum">Poli Umum</option>
+                    <option value="anak">Poli Anak</option>
+                    <option value="gigi">Poli Gigi</option>
+                    <option value="kandungan">Poli Kandungan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dokter">Dokter Poliklinik</label>
+                <select id="dokter" name="dokter" required>
+                    <option value="" disabled selected>Pilih Dokter</option>
+                    <option value="andi">dr. Andi</option>
+                    <option value="budi">dr. Budi Sp.A</option>
+                    <option value="budi">drg. Agung</option>
+                    <option value="budi">dr. Shela Sp.O</option>
+                </select>
+            </div>
+            <div class="form-button">
+                <button type="submit" class="btn-simpan">Simpan Data Pasien</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

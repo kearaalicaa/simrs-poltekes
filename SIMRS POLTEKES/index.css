@@ -1,0 +1,144 @@
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+}
+
+.header-menu .title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header-menu .menu {
+    font-size: 16px; 
+    display: flex;
+    gap: 14px;
+}
+
+.header-menu .menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-menu .menu .active {
+    color: black;
+    font-weight: bold;
+}
+
+.header-menu .button-auth button {
+    background-color: darkred;
+    color: white;
+    border-radius: 16px;
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* DASHBOARD MENU CARD */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.menu .card-menu {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 14px;
+    padding: 12px;
+}
+
+/* FORM PENDAFTARAN / CARD FORM */
+.container h2{
+    text-align: center;
+    margin-bottom: 25px;
+    color: red;
+    font-size: 24px;
+}
+
+.form-card{
+    background: linear-gradient(135deg,#ffffff,#f8fbff);
+    padding: 50px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label{
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select{
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: all 0.25s ease;
+}
+
+.form-button{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.btn-simpan{
+    background-color: #ff9a9a; 
+    color: white;
+    padding: 13px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-simpan:hover{
+    background-color: red; 
+}
+
+/* TABEL UMUM (PENGGUNA / RAWAT JALAN) */
+.container {
+    padding: 30px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+table thead{
+    background-color:green;
+    color: white;
+}
+
+table th, table td{
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:hover{
+    background-color: #ddd;
+    transition: 0.3s;
+}
+
+
