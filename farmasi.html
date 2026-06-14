@@ -20,31 +20,76 @@
         <a href="kasir.html">Kasir</a>
         <a href="login.html">Logout</a>
     </div>
-    <div class="main">
 
+     <div class="main">
         <div class="card">
             <h2>Resep & Farmasi</h2>
-            <input placeholder="Nama Pasien">
-            <input placeholder="Obat">
-            <input placeholder="Jumlah">
-            <button>Tambah Obat</button>
+            <input id="NamaPasien" placeholder="Nama Pasien">
+            <input id="Obat" placeholder="Obat">
+            <input id="Jumlah" placeholder="Jumlah">
+            <button onclick="submit()">Tambah Obat</button>
         </div>
 
-        <div class="card">
-            <h2>Daftar Resep</h2>
-            <table>
+    <script>
+        let farmasi = []
+
+        const submit = () => {
+            let NamaPasien = document.getElementById("NamaPasien").value
+            let Obat = document.getElementById("Obat").value
+            let Jumlah = document.getElementById("Jumlah").value
+
+            if (!NamaPasien) {
+                alert("Nama Pasien wajib diisi")
+            } else if (!Obat) {
+                alert("Obat wajib diisi")
+            } else if (!Jumlah) {
+                alert("Jumlah wajib diisi")
+            } else {
+                alert("Berhasil simpan")
+                farmasi.push({
+                    nama: NamaPasien,
+                    obat: Obat,
+                    jumlah: Jumlah,
+                })
+                renderTable()
+                document.getElementById("NamaPasien").value = ""
+                document.getElementById("Obat").value = ""
+                document.getElementById("Jumlah").value = ""
+            }
+        }
+
+        const renderTable = () => {
+            let html = ""
+            farmasi.forEach((item, index) => {
+                html += `
                 <tr>
-                    <th>Pasien</th>
-                    <th>Obat</th>
-                    <th>Qty</th>
-                </tr>
-                <tr>
-                    <td>Budi</td>
-                    <td>Paracetamol</td>
-                    <td>10</td>
-                </tr>
-            </table>
-        </div>
+                    <td>${item.nama}</td>
+                    <td>${item.obat}</td>
+                    <td>${item.jumlah}</td>
+                </tr>`
+            })
+            document.getElementById("tfarmasi").innerHTML = html
+        }
+    </script>
+
+    <div class="card">
+        <h2>Daftar Resep</h2>
+        <table>
+            <tr>
+                <th>Pasien</th>
+                <th>Obat</th>
+                <th>Qty</th>
+            </tr>
+            <tbody></tbody>
+            <tr>
+                <td>Budi</td>
+                <td>Paracetamol</td>
+                <td>10</td>
+            </tr>
+            </tbody>
+            <tbody id="tfarmasi"></tbody>
+        </table>
+    </div>
 
     </div>
 </body>

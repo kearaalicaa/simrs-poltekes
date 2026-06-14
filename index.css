@@ -51,7 +51,8 @@ body {
 
 table {
     width: 100%;
-    border-collapse: collapse
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 th,
@@ -70,6 +71,7 @@ select {
 }
 
 button {
+    width: 15%;
     padding: 10px 15px;
     background: #2563eb;
     color: white;

@@ -23,16 +23,57 @@
     <div class="main">
         <div class="card">
             <h2>Radiologi</h2>
-            <input placeholder="Nama Pasien">
-            <select>
+            <input id="NamaPasien" placeholder="Nama Pasien">
+            <select id="Pemeriksaan">
                 <option>X-Ray</option>
                 <option>CT Scan</option>
                 <option>MRI</option>
                 <option>USG</option>
             </select>
-            <input placeholder="Hasil Radiologi">
-            <button>Simpan Hasil</button>
+            <input id="Hasil" placeholder="Hasil Radiologi">
+            <button onclick="submit()">Simpan Hasil</button>
         </div>
+
+        <script>
+            let radiologi = []
+
+            const submit = () => {
+                let NamaPasien = document.getElementById("NamaPasien").value
+                let Pemeriksaan = document.getElementById("Pemeriksaan").value 
+                let Hasil = document.getElementById("Hasil").value
+
+                if (!NamaPasien) {
+                    alert("Nama Pasien wajib di isi")
+                } else if (!Hasil) {
+                    alert("Hasil radiologi harus diisi")
+                } else {
+                    alert("Berhasi simpan")
+        
+                    radiologi.push({
+                        nama: NamaPasien,
+                        pemeriksaan: Pemeriksaan,
+                        hasil: Hasil,
+                    })
+                    renderTable()
+                    document.getElementById("NamaPasien").value = ""
+                    document.getElementById("Hasil").value = ""
+               
+                }
+            }
+
+            const renderTable = () => {
+                let html = ""
+                radiologi.forEach((item, index) => {
+                    html += `
+                <tr>
+                    <td>${item.nama}</td>
+                    <td>${item.pemeriksaan}</td>
+                    <td>${item.hasil}</td>
+                </tr>`
+                })
+                document.getElementById("tradiologi").innerHTML = html
+            }
+        </script>
 
         <div class="card">
             <h2>Data Radiologi</h2>
@@ -42,11 +83,14 @@
                     <th>Pemeriksaan</th>
                     <th>Hasil</th>
                 </tr>
-                <tr>
-                    <td>Andi</td>
-                    <td>X-Ray</td>
-                    <td>Tidak ditemukan kelainan</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Andi</td>
+                        <td>X-Ray</td>
+                        <td>Tidak ditemukan kelainan</td>
+                    </tr>
+                </tbody>
+                <tbody id="tradiologi"></tbody>
             </table>
         </div>
 

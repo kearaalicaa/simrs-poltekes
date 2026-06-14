@@ -24,8 +24,8 @@
 
         <div class="card">
             <h2>Laboratorium</h2>
-            <input placeholder="Nama Pasien">
-            <select>
+            <input id="NamaPasien" placeholder="Nama Pasien">
+            <select id="Pemeriksaan">
                 <option>Hematologi</option>
                 <option>Kimia Klinik</option>
                 <option>Urinalisa</option>
@@ -37,9 +37,48 @@
                 <option>Fungsi Hati</option>
                 <option>Fungsi Ginjal</option>
             </select>
-            <input placeholder="Hasil Laboratorium">
-            <button>Simpan Hasil</button>
+            <input id="Hasil" placeholder="Hasil Laboratorium">
+            <button onclick="submit()">Simpan Hasil</button>
         </div>
+
+           <script>
+            let laboratorium = []
+
+            const submit = () => {
+                let NamaPasien = document.getElementById("NamaPasien").value
+                let Pemeriksaan = document.getElementById("Pemeriksaan").value 
+                let Hasil = document.getElementById("Hasil").value
+
+                if (!NamaPasien) {
+                    alert("Nama Pasien wajib diisi")
+                } else if (!Hasil) {
+                    alert("Hasil Laboratorium wajib diisi")
+                } else {
+                    alert("Berhasil simpan")
+                    laboratorium.push({
+                        nama: NamaPasien,
+                        pemeriksaan: Pemeriksaan,
+                        hasil: Hasil,
+                    })
+                    renderTable()
+                    document.getElementById("NamaPasien").value = ""
+                    document.getElementById("Hasil").value = ""
+                }
+            }
+
+            const renderTable = () => {
+                let html = ""
+                laboratorium.forEach((item, index) => {
+                    html += `
+                <tr>
+                    <td>${item.nama}</td>
+                    <td>${item.pemeriksaan}</td>
+                    <td>${item.hasil}</td>
+                </tr>`
+                })
+                document.getElementById("tlaboratorium").innerHTML = html
+            }
+        </script>
 
         <div class="card">
             <h2>Data Pemeriksaan Lab</h2>
@@ -49,11 +88,14 @@
                     <th>Pemeriksaan</th>
                     <th>Hasil</th>
                 </tr>
-                <tr>
-                    <td>Siti</td>
-                    <td>Hematologi</td>
-                    <td>Normal</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Siti</td>
+                        <td>Hematologi</td>
+                        <td>Normal</td>
+                    </tr>
+                </tbody>
+                <tbody id="tlaboratorium"></tbody>
             </table>
         </div>
 
